@@ -29,7 +29,7 @@ public class CubeWallpaper2Settings extends PreferenceActivity
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         getPreferenceManager().setSharedPreferencesName(
-                CubeWallpaper2.SHARED_PREFS_NAME);
+                SolidWallpaper.SHARED_PREFS_NAME);
         addPreferencesFromResource(R.xml.cube2_settings);
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(
                 this);
