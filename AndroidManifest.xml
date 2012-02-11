@@ -24,24 +24,12 @@
     <uses-sdk android:minSdkVersion="7" />
     <uses-feature android:name="android.software.live_wallpaper" />
 
-    <uses-feature android:name="android.software.live_wallpaper" />
-
     <application
-        android:label="@string/wallpapers"
+        android:label="Solid Wallpaper"
         android:icon="@drawable/ic_launcher_wallpaper">
 
         <service
-            android:label="@string/wallpaper_cube1"
-            android:name=".cube1.CubeWallpaper1"
-            android:permission="android.permission.BIND_WALLPAPER">
-            <intent-filter>
-                <action android:name="android.service.wallpaper.WallpaperService" />
-            </intent-filter>
-            <meta-data android:name="android.service.wallpaper" android:resource="@xml/cube1" />
-        </service>
-
-        <service
-            android:label="@string/wallpaper_cube2"
+            android:label="Solid Color"
             android:name=".cube2.CubeWallpaper2"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
