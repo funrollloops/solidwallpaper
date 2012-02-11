@@ -22,7 +22,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-public class CubeWallpaper2Settings extends PreferenceActivity
+public class SolidWallpaperSettings extends PreferenceActivity
     implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
@@ -30,14 +30,9 @@ public class CubeWallpaper2Settings extends PreferenceActivity
         super.onCreate(icicle);
         getPreferenceManager().setSharedPreferencesName(
                 SolidWallpaper.SHARED_PREFS_NAME);
-        addPreferencesFromResource(R.xml.cube2_settings);
+        addPreferencesFromResource(R.xml.solid_wallpaper_settings);
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(
                 this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     @Override
