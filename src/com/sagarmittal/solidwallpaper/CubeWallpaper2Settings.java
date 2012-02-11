@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.example.android.livecubes.cube2;
+package com.sagarmittal.solidwallpaper;
 
 import com.example.android.livecubes.R;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.livecubes.cube2;
+package com.sagarmittal.solidwallpaper;
 
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -28,44 +28,21 @@ import android.view.SurfaceHolder;
  */
 
 public class CubeWallpaper2 extends WallpaperService {
-
-  public static final String SHARED_PREFS_NAME="cube2settings";
-
-  static class ThreeDPoint {
-    float x;
-    float y;
-    float z;
-  }
-
-  static class ThreeDLine {
-    int startPoint;
-    int endPoint;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-  }
-
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
-  }
+  public static final String SHARED_PREFS_NAME="solid-wallpaper-settings";
 
   @Override
   public Engine onCreateEngine() {
-    return new CubeEngine();
+    return new SolidColorEngine();
   }
 
-  class CubeEngine extends Engine 
+  class SolidColorEngine extends Engine 
   implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private SharedPreferences mPrefs;
     private int color;
 
-    CubeEngine() {
-      mPrefs = CubeWallpaper2.this.getSharedPreferences(SHARED_PREFS_NAME, 0);
-      mPrefs.registerOnSharedPreferenceChangeListener(this);
-      onSharedPreferenceChanged(mPrefs, null);
+    SolidColorEngine() {
+      SharedPreferences preferences = CubeWallpaper2.this.getSharedPreferences(SHARED_PREFS_NAME, 0);
+      preferences.registerOnSharedPreferenceChangeListener(this);
+      onSharedPreferenceChanged(preferences, null);
     }
 
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
@@ -80,34 +57,23 @@ public class CubeWallpaper2 extends WallpaperService {
     @Override
     public void onVisibilityChanged(boolean visible) {
       if (visible) {
-        drawFrame();
+        redraw();
       }
     }
 
     @Override
     public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
       super.onSurfaceChanged(holder, format, width, height);
-      drawFrame();
+      redraw();
     }
 
-    @Override
-    public void onSurfaceCreated(SurfaceHolder holder) {
-      super.onSurfaceCreated(holder);
-    }
-
-    /*
-     * Draw one frame of the animation. This method gets called repeatedly
-     * by posting a delayed Runnable. You can do any drawing you want in
-     * here. This example draws a wireframe cube.
-     */
-    void drawFrame() {
+    void redraw() {
       final SurfaceHolder holder = getSurfaceHolder();
 
       Canvas c = null;
       try {
         c = holder.lockCanvas();
         if (c != null) {
-          // draw something
           c.drawColor(this.color);
         }
       } finally {

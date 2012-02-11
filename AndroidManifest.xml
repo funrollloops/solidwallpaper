@@ -30,7 +30,7 @@
 
         <service
             android:label="Solid Color"
-            android:name=".cube2.CubeWallpaper2"
+            android:name="com.sagarmittal.solidwallpaper.CubeWallpaper2"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -39,7 +39,7 @@
         </service>
         <activity
             android:label="Settings"
-            android:name=".cube2.CubeWallpaper2Settings"
+            android:name="com.sagarmittal.solidwallpaper.CubeWallpaper2Settings"
             android:theme="@android:style/Theme.Light.WallpaperSettings"
             android:exported="true">
         </activity>
